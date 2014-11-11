@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+	<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+
+		<head>
+
+			<title>Front Range Community College</title>
+
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+		</head>
+
+		<body>
+
+			<h1 id="title">Click Me!</h1>
+
+			<input id="autocomplete"></input>
+
+
+
+			<ul id="result">
+
+			</ul>
+
+
+
+			<script>
+
+				$("#autocomplete").keyup(function() {
+
+					// $("#autocomplete").val();
+
+					$.ajax({
+
+					  url: "http://autocomplete.topratedlocal.com/city/"+$("#autocomplete").val(),
+
+					})
+
+				  .done(function( data ) {
+
+					   var html ="";	
+
+					   data.forEach(function(e){ 
+
+						html  += "<li>"+ e +  "</li>";
+
+					   });
+
+					   $("#result").html(html);
+
+				  });
+
+
+
+
+
+				});
+
+
+
+
+
+			</script>
+
+			<style>	
+
+				#result { border: 1px dotted black; width: 300px; min-height: 200px; } 
+
+			</style>
+
+		</body>
+
+	</html>
